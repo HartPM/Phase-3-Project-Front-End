@@ -5,6 +5,9 @@ function ProjectForm({ handleForm, cars }) {
     const [timeRequired, setTimeRequired] = useState(0)
     const [toolsRequired, setToolsRequired] = useState("")
     const [description, setDescription] = useState("")
+    const [searchCar, setSearchCar] = useState("")
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -82,8 +85,8 @@ function ProjectForm({ handleForm, cars }) {
                     <input
                         type="text"
                         placeholder="Car's Nickname"
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
+                        value={searchCar}
+                        onChange={e => setSearchCar(e.target.value)}
                     >
                     </input>
                 </label>

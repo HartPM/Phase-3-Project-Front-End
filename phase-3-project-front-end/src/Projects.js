@@ -23,6 +23,7 @@ function Projects() {
         setProjects([...projects, data])
     }
 
+    console.log(projects)
     const updateProjectList = () => {
         fetch('http://localhost:9292/projects')
             .then(resp => resp.json())
