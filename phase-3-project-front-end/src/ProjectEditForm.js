@@ -1,37 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-function ProjectForm({ handleForm, cars }) {
-    const [projectTitle, setProjectTitle] = useState("")
-    const [timeRequired, setTimeRequired] = useState(0)
-    const [toolsRequired, setToolsRequired] = useState("")
-    const [description, setDescription] = useState("")
+function ProjectEditForm({ project }) {
+    const [projectTitle, setProjectTitle] = useState(project.title)
+    const [timeRequired, setTimeRequired] = useState(project.time_required)
+    const [toolsRequired, setToolsRequired] = useState(project.tools_required)
+    const [description, setDescription] = useState(project.description)
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault()
-        postProject()
-    }
 
-    function postProject() {
-        fetch('http://localhost:9292/projects', {
-            method: 'POST',
+        const projectObject =
+        {
+            title: projectTitle,
+            time_required: timeRequired,
+            tools_required: toolsRequired,
+            description: description
+        }
+
+        fetch(`http://localhost:9292/projects/${project.id}`, {
+            method: 'PATCH',
             headers: {
-                "Content-Type": "application/json",
-                'Accept': 'application/json'
+                'Content-type': 'application/json; charset=UTF-8',
             },
-            body: JSON.stringify({
-                title: projectTitle,
-                time_required: timeRequired,
-                tools_required: toolsRequired,
-                description: description,
-            })
+            body: JSON.stringify(
+                projectObject
+            ),
         })
             .then(r => r.json())
-            .then(data => handleForm(data))
-
-        setProjectTitle("")
-        setTimeRequired(0)
-        setToolsRequired("")
-        setDescription("")
+            .then(data => console.log(data));
     }
 
     return (
@@ -77,20 +73,10 @@ function ProjectForm({ handleForm, cars }) {
                     >
                     </input>
                 </label>
-                <label>
-                    Car Receiving Project
-                    <input
-                        type="text"
-                        placeholder="Car's Nickname"
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
-                    >
-                    </input>
-                </label>
-                <button>Create Project!</button>
+                <button>Update Project!</button>
             </form>
         </div>
     )
 }
 
-export default ProjectForm
+export default ProjectEditForm
