@@ -30,6 +30,10 @@ function Projects() {
             .then(data => setProjects(data))
     }
 
+    // function handleSortByCar() {
+    //     projects.sort()
+    // }
+
     return (
         <div>
             {projects.map((project) => {

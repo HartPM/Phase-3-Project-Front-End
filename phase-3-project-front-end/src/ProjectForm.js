@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
+import { Hint } from 'react-autocomplete-hint'
 import { useState } from 'react'
+
 
 function ProjectForm({ handleForm, cars }) {
     const [projectTitle, setProjectTitle] = useState("")
@@ -6,8 +9,13 @@ function ProjectForm({ handleForm, cars }) {
     const [toolsRequired, setToolsRequired] = useState("")
     const [description, setDescription] = useState("")
     const [searchCar, setSearchCar] = useState("")
+    const[hintData, setHintData] = useState([])
 
-
+    useEffect(() => {
+        fetch('http://localhost:9292/cars')
+            .then(resp => resp.json())
+            .then(cars => setHintData(cars.map(car => car.name)))
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -84,6 +92,7 @@ function ProjectForm({ handleForm, cars }) {
                 </label>
                 <label>
                     Car Receiving Project
+                    <Hint options={hintData} allowTabFill>
                     <input
                         type="text"
                         placeholder="Car's Nickname"
@@ -91,6 +100,7 @@ function ProjectForm({ handleForm, cars }) {
                         onChange={e => setSearchCar(e.target.value)}
                     >
                     </input>
+                    </Hint>
                 </label>
                 <button>Create Project!</button>
             </form>
