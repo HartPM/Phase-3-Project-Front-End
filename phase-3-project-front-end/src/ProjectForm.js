@@ -26,6 +26,7 @@ function ProjectForm({ handleForm, cars }) {
                 time_required: timeRequired,
                 tools_required: toolsRequired,
                 description: description,
+                search_car: searchCar
             })
         })
             .then(r => r.json())
