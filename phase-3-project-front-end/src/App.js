@@ -15,9 +15,11 @@ function App() {
           <HomePage />
         </Route>
         <Route exact path="/projects">
+          <Header />
           <Projects />
         </Route>
         <Route exact path="/cars">
+          <Header />
           <Cars />
         </Route>
       </BrowserRouter>
