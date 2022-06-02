@@ -12,6 +12,7 @@ function Cars() {
             .then(data => setProjects(data))
     }, [])
 
+
     useEffect(() => {
         fetch('http://localhost:9292/cars')
             .then(resp => resp.json())
