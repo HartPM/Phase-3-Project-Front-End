@@ -37,10 +37,12 @@ function CarForm({ handleForm }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form-container">
+                <h4 className="form-header">Add a new car to your garage</h4>
                 <label>
                     Nickname
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder='Name your ride'
                         value={name}
@@ -50,6 +52,7 @@ function CarForm({ handleForm }) {
                 <label>
                     Year
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder='When was your car built'
                         value={year}
@@ -59,6 +62,7 @@ function CarForm({ handleForm }) {
                 <label>
                     Make
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder='What are you driving???'
                         value={make}
@@ -68,6 +72,7 @@ function CarForm({ handleForm }) {
                 <label>
                     Model
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder='This is different than the make...'
                         value={model}
@@ -77,13 +82,14 @@ function CarForm({ handleForm }) {
                 <label>
                     Photo
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder='show off your whip'
                         value={image}
                         onChange={e => setImage(e.target.value)}>
                     </input>
                 </label>
-                <button>Add to your Garage</button>
+                <button className="form-button">Add to your Garage</button>
             </form>
         </div>
     )

@@ -17,11 +17,13 @@ function ProjectCard({ project, updateProjectList }) {
     }
 
     return (
-        <ul>
-            <li value={project}>{project.title}</li>
-            <button onClick={handleEditClick}>Edit Project</button>
-            {isEdit ? <ProjectEditForm project={project} /> : null}
-            <button onClick={handleDelete}>Delete Project</button>
+        <ul className="project-container">
+            <li className="project-element" value={project}>{project.title}</li><li className="description">{project.description}</li>
+            <div className="button-container">
+                <button className="project-button" onClick={handleEditClick}>Edit Project</button>
+                {isEdit ? <ProjectEditForm project={project} /> : null}
+                <button className="project-button" onClick={handleDelete}>Delete Project</button>
+            </div>
         </ul>
 
     )
