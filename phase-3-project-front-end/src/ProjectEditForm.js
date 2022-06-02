@@ -32,10 +32,11 @@ function ProjectEditForm({ project }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="edit-form">
                 <label>
                     Project Name
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="Name your Project"
                         value={projectTitle}
@@ -46,6 +47,7 @@ function ProjectEditForm({ project }) {
                 <label>
                     Time Required
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="How long will it take..."
                         value={timeRequired}
@@ -56,6 +58,7 @@ function ProjectEditForm({ project }) {
                 <label>
                     Tools Required
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="What tools will you need..."
                         value={toolsRequired}
@@ -66,6 +69,7 @@ function ProjectEditForm({ project }) {
                 <label>
                     Description
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="Summary of project..."
                         value={description}
@@ -73,7 +77,7 @@ function ProjectEditForm({ project }) {
                     >
                     </input>
                 </label>
-                <button>Update Project!</button>
+                <button className="form-button">Update Project!</button>
             </form>
         </div>
     )

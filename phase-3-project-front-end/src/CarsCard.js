@@ -13,9 +13,9 @@ function CarsCard({ car, projects }) {
     }
 
     return (
-        <div>
-            <img src={car.image_url} />
-            <p>🚗 {car.name} 🚗: 🔧 {proj_str} 🔧</p>
+        <div className="car-container">
+            <img className="car-images" src={car.image_url} />
+            <p className="details" id="car-name">🚗 {car.name} 🚗:</p><p className="details">🔧 {proj_str} 🔧</p>
         </div>
     )
 }

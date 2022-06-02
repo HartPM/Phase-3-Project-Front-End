@@ -49,10 +49,12 @@ function ProjectForm({ handleForm, cars }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form-container">
+                <h4 className="form-header">Begin a Project!</h4>
                 <label>
                     Project Name
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="Name your Project"
                         value={projectTitle}
@@ -63,6 +65,7 @@ function ProjectForm({ handleForm, cars }) {
                 <label>
                     Time Required
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="How long will it take..."
                         value={timeRequired}
@@ -73,6 +76,7 @@ function ProjectForm({ handleForm, cars }) {
                 <label>
                     Tools Required
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="What tools will you need..."
                         value={toolsRequired}
@@ -83,6 +87,7 @@ function ProjectForm({ handleForm, cars }) {
                 <label>
                     Description
                     <input
+                        className="form-inputs"
                         type="text"
                         placeholder="Summary of project..."
                         value={description}
@@ -94,6 +99,7 @@ function ProjectForm({ handleForm, cars }) {
                     Car Receiving Project
                     <Hint options={hintData} allowTabFill>
                         <input
+                            className="form-inputs"
                             type="text"
                             placeholder="Car's Nickname"
                             value={searchCar}
@@ -102,7 +108,7 @@ function ProjectForm({ handleForm, cars }) {
                         </input>
                     </Hint>
                 </label>
-                <button>Create Project!</button>
+                <button className="form-button">Create Project!</button>
             </form>
         </div>
     )
