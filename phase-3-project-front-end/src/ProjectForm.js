@@ -49,7 +49,7 @@ function ProjectForm({ handleForm, cars }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="form-container">
+            <form onSubmit={handleSubmit} className="form-container2">
                 <h4 className="form-header">Begin a Project!</h4>
                 <label>
                     Project Name
@@ -97,7 +97,8 @@ function ProjectForm({ handleForm, cars }) {
                 </label>
                 <label>
                     Car Receiving Project
-                    <Hint options={hintData} allowTabFill>
+
+                    <Hint id="Hint" options={hintData} allowTabFill>
                         <input
                             className="form-inputs"
                             type="text"
@@ -107,10 +108,11 @@ function ProjectForm({ handleForm, cars }) {
                         >
                         </input>
                     </Hint>
+
                 </label>
-                <button className="form-button">Create Project!</button>
+                <button className="form-button2">Create Project!</button>
             </form>
-        </div>
+        </div >
     )
 }
 
