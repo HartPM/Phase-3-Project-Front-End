@@ -36,6 +36,7 @@ function ProjectForm({ handleForm, cars }) {
         setTimeRequired(0)
         setToolsRequired("")
         setDescription("")
+        setSearchCar("")
     }
 
     return (

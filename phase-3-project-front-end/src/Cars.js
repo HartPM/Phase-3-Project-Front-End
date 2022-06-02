@@ -4,6 +4,13 @@ import CarFrom from './CarForm'
 
 function Cars() {
     const [cars, setCars] = useState([])
+    const [projects, setProjects] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:9292/projects')
+            .then(resp => resp.json())
+            .then(data => setProjects(data))
+    }, [])
 
 
     useEffect(() => {
@@ -19,7 +26,7 @@ function Cars() {
     return (
         <div>
             {cars.map(car => {
-                return <CarsCard car={car} />
+                return <CarsCard car={car} projects={projects.filter(project => project.car_id === car.id)} />
             })}
             <CarFrom handleForm={handleForm} />
         </div>
